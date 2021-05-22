@@ -51,6 +51,7 @@ app.post('/', (req, res) =>
         {
 
         });*/
+    var xhr = new XMLHttpRequest();
     res.json({
         signature: request
     })
