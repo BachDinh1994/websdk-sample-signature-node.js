@@ -50,10 +50,11 @@ app.post('/', (req, res) =>
         .then(response => response.json())
         .then(data =>
         {
-            res.json({
-                signature: data
-            })
+
         });
+    res.json({
+        signature: data
+    })
 })
 
 app.listen(port, () => console.log(`Zoom Web Client SDK Sample Signature Node.js on port ${port}!`))
