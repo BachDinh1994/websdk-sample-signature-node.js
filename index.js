@@ -46,12 +46,12 @@ app.post('/', (req, res) =>
             }
         });*/
 
-    fetch(request)
+    /*fetch(request)
         .then(response => response.json())
         .then(data =>
         {
 
-        });
+        });*/
     res.json({
         signature: data
     })
