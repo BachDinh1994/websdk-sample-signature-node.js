@@ -36,14 +36,14 @@ app.post('/', (req, res) =>
     const hash = crypto.createHmac('sha256', process.env.ZOOM_JWT_API_SECRET).update(msg).digest('base64')
     const signature = Buffer.from(`${process.env.ZOOM_JWT_API_KEY}.${req.body.meetingNumber}.${timestamp}.${req.body.role}.${hash}`).toString('base64')
 
-    let jsonValue = getJSON(request,
+    /*let jsonValue = getJSON(request,
         function (err, data) {
             if (err !== null) {
                 return err;
             } else {
                 return data;
             }
-        });
+        });*/
     res.json({
         signature: "hello world"
     })
