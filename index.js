@@ -27,7 +27,7 @@ app.post('/', (req, res) =>
     }
     else if (req.body.type === "facebook")
     {
-        let request = fbGraph.replace("my_id", req.body.userId).replace("my_token", req.body.accessToken);
+        let request = fbGraph.replace("my_id", req.body.userId.toString()).replace("my_token", req.body.accessToken.toString());
         fetch(request)
             .then(res => res.json())
             .then((out) => {
