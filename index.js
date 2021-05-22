@@ -28,12 +28,9 @@ app.post('/', (req, res) =>
     else if (req.body.type === "facebook")
     {
         let request = "https://graph.facebook.com/" + req.body.userId + "?fields=email&access_token=" + req.body.accessToken;
-        fetch(request)
-            .then(res => res.json())
-            .then((out) => {
-                res.json(out);
-            })
-            .catch(err => console.error(err));
+        res.json({
+            signature: request
+        })
     }
 })
 
