@@ -18,7 +18,7 @@ app.post('/', (req, res) => {
   const signature = Buffer.from(`${process.env.ZOOM_JWT_API_KEY}.${req.body.meetingNumber}.${timestamp}.${req.body.role}.${hash}`).toString('base64')
 
   res.json({
-    signature: signature
+    signature: "hello world"
   })
 })
 
