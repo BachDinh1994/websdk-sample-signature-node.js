@@ -62,7 +62,7 @@ app.post('/', (req, res) =>
         })
         .catch(err => console.error(err));
     res.json({
-        signature: out
+        signature: "hello"
     })
 })
 
