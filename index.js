@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const cors = require('cors')
+const fetch = require('node-fetch')
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -51,7 +52,14 @@ app.post('/', (req, res) =>
         {
 
         });*/
-    var xhr = new XMLHttpRequest();
+    fetch(request)
+        .then(res => res.json())
+        .then((out) =>
+        {
+            console.log('Output: ', out);
+        })
+        .catch(err => console.error(err));
+
     res.json({
         signature: request
     })
