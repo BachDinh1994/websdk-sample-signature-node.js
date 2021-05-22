@@ -36,18 +36,15 @@ app.post('/', (req, res) =>
     const hash = crypto.createHmac('sha256', process.env.ZOOM_JWT_API_SECRET).update(msg).digest('base64')
     const signature = Buffer.from(`${process.env.ZOOM_JWT_API_KEY}.${req.body.meetingNumber}.${timestamp}.${req.body.role}.${hash}`).toString('base64')*/
 
-    res.json(
-        getJSON(request,
-            function (err, data) {
-                if (err !== null) {
-                    return err;
-                } else {
-                    return data;
-                }
-            });
-    });
-    
-    )
+    let jsonValue = getJSON(request,
+        function (err, data) {
+            if (err !== null) {
+                return err;
+            } else {
+                return data;
+            }
+        });
+    res.json(jsonValue)
 })
 
 app.listen(port, () => console.log(`Zoom Web Client SDK Sample Signature Node.js on port ${port}!`))
