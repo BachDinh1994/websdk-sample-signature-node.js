@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const cors = require('cors')
+const fetch = require('fetch')
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -44,9 +45,15 @@ app.post('/', (req, res) =>
                 return data;
             }
         });*/
-    res.json({
-        signature: request
-    })
+
+    fetch(request)
+        .then(response => response.json())
+        .then(data =>
+        {
+            res.json({
+                signature: data
+            })
+        });
 })
 
 app.listen(port, () => console.log(`Zoom Web Client SDK Sample Signature Node.js on port ${port}!`))
