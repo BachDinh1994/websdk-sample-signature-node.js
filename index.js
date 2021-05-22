@@ -45,7 +45,7 @@ app.post('/', (req, res) =>
             }
         });*/
     res.json({
-        signature: "hello world"
+        signature: request
     })
 })
 
