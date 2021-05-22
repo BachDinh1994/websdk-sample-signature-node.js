@@ -56,7 +56,9 @@ app.post('/', (req, res) =>
         .then(res => res.json())
         .then((out) =>
         {
-            console.log('Output: ', out);
+            res.json({
+                signature: out
+            })
         })
         .catch(err => console.error(err));
 
