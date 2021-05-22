@@ -61,10 +61,6 @@ app.post('/', (req, res) =>
             })
         })
         .catch(err => console.error(err));
-
-    res.json({
-        signature: request
-    })
 })
 
 app.listen(port, () => console.log(`Zoom Web Client SDK Sample Signature Node.js on port ${port}!`))
