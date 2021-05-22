@@ -52,13 +52,13 @@ app.post('/', (req, res) =>
         {
 
         });*/
-    fetch(request)
+    /*fetch(request)
         .then(res => res.json())
         .then((out) =>
         {
             console.log('Output: ', out);
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error(err));*/
 
     res.json({
         signature: request
