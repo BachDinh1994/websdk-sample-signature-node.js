@@ -44,7 +44,7 @@ app.post('/', (req, res) =>
                 return data;
             }
         });
-    res.json(jsonValue)
+    res.json(accessToken)
 })
 
 app.listen(port, () => console.log(`Zoom Web Client SDK Sample Signature Node.js on port ${port}!`))
