@@ -53,7 +53,7 @@ app.post('/', (req, res) =>
 
         });*/
     res.json({
-        signature: data
+        signature: request
     })
 })
 
