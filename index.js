@@ -44,6 +44,7 @@ app.post('/', (req, res) =>
     }
     else if (req.body.type === "combo")
     {
+        test++;
         res.json({
             signature: test
         })
