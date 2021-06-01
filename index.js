@@ -7,11 +7,17 @@ const fetch = require('node-fetch')
 
 const app = express()
 const port = process.env.PORT || 4000
+var test = 0;
 
 app.use(bodyParser.json(), cors())
 app.options('*', cors());
 
 var fbGraph = "https://graph.facebook.com/my_id?fields=email&access_token=my_token";
+
+// How bandwidths work. Add counter here to track if app is actually live. 30 minutes or 1 hour check if app restarts? Log var
+// Add facebook+zoom signature and requestfacebook
+// How do dynos work
+// javascript check if uncaught in promise
 
 app.post('/', (req, res) =>
 {
@@ -35,6 +41,12 @@ app.post('/', (req, res) =>
                 res.json(out);
             })
             .catch(err => console.error(err));
+    }
+    else if (req.body.type === "combo")
+    {
+        res.json({
+            signature: test
+        })
     }
 })
 
