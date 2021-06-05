@@ -72,7 +72,7 @@ app.post('/', (req, res) =>
             console.log(results);
         });*/
         res.json({
-            signature: connectionResult
+            signature: connection
         })
     }
 })
