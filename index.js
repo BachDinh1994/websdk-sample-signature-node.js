@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const cors = require('cors')
 const fetch = require('node-fetch')
+const mysql = require('mysql')
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -47,6 +48,31 @@ app.post('/', (req, res) =>
         test++;
         res.json({
             signature: test
+        })
+    }
+    else if (req.body.type === "mysql")
+    {
+        var connection = mysql.createConnection
+        ({
+            host: req.body.host,
+            user: req.body.user,
+            password: req.body.password,
+            database: req.body.database,
+        });
+        let connectionResult = "Nothing";
+        connection.connect(function (err)
+        {
+            if (err)
+                connectionResult = 'error: ' + err.message;
+            connectionResult = 'Connected to the MySQL server.';
+        });
+        /*connection.query('select * from entries;', function (error, results, fields) {
+            console.log("we're in");
+            if (error) throw error;
+            console.log(results);
+        });*/
+        res.json({
+            signature: connectionResult
         })
     }
 })
