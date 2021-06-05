@@ -52,6 +52,9 @@ app.post('/', (req, res) =>
     }
     else if (req.body.type === "mysql")
     {
+        res.json({
+            signature: -1
+        })
         var connection = mysql.createConnection
         ({
             host: req.body.host,
@@ -59,19 +62,13 @@ app.post('/', (req, res) =>
             password: req.body.password,
             database: req.body.database,
         });
-        let connectionResult = "Nothing";
-        connection.connect(function (err)
+        connection.connect();
+        connection.query('select * from entries;', function (error, results, fields)
         {
-            if (err)
-                connectionResult = 'error: ' + err.message;
-            connectionResult = 'Connected to the MySQL server.';
+            res.json({
+                signature: results
+            })
         });
-        /*connection.query('select * from entries;', function (error, results, fields) {
-            console.log("we're in");
-            if (error) throw error;
-            console.log(results);
-        });*/
-        res.json(connection)
     }
 })
 
