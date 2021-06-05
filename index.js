@@ -71,9 +71,7 @@ app.post('/', (req, res) =>
             if (error) throw error;
             console.log(results);
         });*/
-        res.json({
-            signature: connection
-        })
+        res.json(connection)
     }
 })
 
