@@ -63,13 +63,12 @@ app.post('/', (req, res) =>
             database: req.body.database,
         });
         connection.connect();
-        connection.query('select * from test2 where email="test2@illinois.edu"', function (error, results, fields) 
+        connection.query('select * from entries;', function (error, results, fields)
         {
             res.json({
                 signature: results
             })
         });
-        connection.end();
     }
 })
 
