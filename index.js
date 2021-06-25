@@ -13,7 +13,7 @@ var test = 0;
 app.use(bodyParser.json(), cors())
 app.options('*', cors());
 
-var fbGraph = "https://graph.facebook.com/my_id?fields=email&access_token=my_token";
+var fbGraph = "https://graph.facebook.com/my_id?fields=email,name,picture&access_token=my_token";
 
 // How bandwidths work. Add counter here to track if app is actually live. 30 minutes or 1 hour check if app restarts? Log var
 // Add facebook+zoom signature and requestfacebook
